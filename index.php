@@ -4,7 +4,7 @@ include_once('config/repositories.php');
 include_once('classes/object.php');
 include_once('classes/deploy.php');
 
-$deployer = new Deployer();
+$deployer = new Deployer($repositories);
 $deployer->deploy();
 
 echo 'ok';
