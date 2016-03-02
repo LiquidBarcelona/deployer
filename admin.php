@@ -10,7 +10,9 @@ if(isset($_GET['repo'])) {
     $repo = $repositories[$_GET['repo']];
 
     $lines = $deployer->tailCustom('logs'. DS . $repo['log'].'.log', 250);
+    echo "<pre>";
     echo $lines;
+    echo "</pre>";
 }
 else {
 ?>
