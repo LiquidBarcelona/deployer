@@ -13,7 +13,10 @@ class Deployer extends Object {
             if(isset($this->repositories[$payload->repository->name])) {
                 $config = $this->repositories[$payload->repository->name];
                 if(strtolower($config['branch']) == strtolower($payload->ref)) {
-                    $this->runDeployScript($config);
+                    $success = $this->runDeployScript($config);
+                    if($success) {
+                        $this->registerDeploy($config, $payload);
+                    }
                 }
                 else {
                     $this->log('Branch does not match');
@@ -28,10 +31,20 @@ class Deployer extends Object {
         }
     }
 
+    private function registerDeploy($config, $payload) {
+        $data = array(
+            'commit'        =>  $payload->after,
+            'message'       =>  $payload->head_commit->message,
+            'commiter'      =>  $payload->head_commit->author->name,
+            'pusher'        =>  $payload->pusher->name
+        );
+        $this->log($data, $config['log']);
+    }
     function runDeployScript($config) {
         $this->log("Begin Deployment");
         $ret = shell_exec('./config/scripts'. DS . $config['script']);
         $this->log("Deployment Finished: $ret");
+        return true;
     }
 }
 
