@@ -4,8 +4,6 @@ NOW=$(date +"%Y-%m-%d-%H%M%S")
 echo "SSH Deploy Script run: $NOW
 " >> $LOG
 
-
-git pull origin devel >> $LOG
 ## More useful example:
 #DEEPLIO="./"
 #DEPLOY="./../deepl.io"
