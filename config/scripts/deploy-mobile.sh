@@ -1,15 +1,9 @@
-LOG="logs/deeplio.log"
-NOW=$(date +"%Y-%m-%d-%H%M%S")
 
-echo "SSH Deploy Script run: $NOW
-" >> $LOG
 
 ## More useful example:
-#DEEPLIO="./"
-#DEPLOY="./../deepl.io"
-#LOG="./logs/deeplio.log"
-#NOW=$(date +"%Y-%m-%d-%H%M%S")
 
+LOG="./logs/deeplio.log"
+NOW=$(date +"%Y-%m-%d-%H%M%S")
 ## Start script:
 echo "
 --------------------------------------------------------
