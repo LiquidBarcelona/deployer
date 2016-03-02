@@ -30,7 +30,7 @@ class Deployer extends Object {
 
     function runDeployScript($config) {
         $this->log("Begin Deployment");
-        $ret = shell_exec(scripts. DS . $config['script']);
+        $ret = shell_exec('config/scripts'. DS . $config['script']);
         $this->log("Deployment Finished");
     }
 }
