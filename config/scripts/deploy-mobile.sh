@@ -2,7 +2,7 @@
 
 ## More useful example:
 
-LOG="./logs/deeplio.log"
+LOG="/var/www/ci/logs/deeplio.log"
 NOW=$(date +"%Y-%m-%d-%H%M%S")
 ## Start script:
 echo "
