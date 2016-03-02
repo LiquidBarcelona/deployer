@@ -1,5 +1,4 @@
-
-
+#!/bin/bash
 ## More useful example:
 
 LOG="/var/www/ci/logs/deeplio.log"
@@ -9,7 +8,7 @@ echo "
 --------------------------------------------------------
 NEW DEPLOYMENT: $NOW" >> $LOG
 cd /var/www/mobile-shopify/
-
+echo "Changing Dir"
 git checkout devel >> $LOG
 ## Clear untracked files:
 git clean -df >> $LOG
