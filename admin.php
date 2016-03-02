@@ -9,7 +9,7 @@ if(isset($_GET['repo'])) {
     $deployer = new Deployer($repositories);
     $repo = $repositories[$_GET['repo']];
 
-    $lines = $deployer->tailCustom('logs'. DS . $repo['log'], 250);
+    $lines = $deployer->tailCustom('logs'. DS . $repo['log'].'.log', 250);
     echo $lines;
 }
 else {
